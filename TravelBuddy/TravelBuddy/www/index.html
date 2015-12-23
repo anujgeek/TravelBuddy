@@ -1,0 +1,510 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <title>Travel Buddy !</title>
+
+    <!--CSS-->
+    <!--<link href="css/BootstrapThemes/Cosmo/bootstrap.min.css" rel="stylesheet" />-->
+    <!--<link href="css/jQUIThemes/blacktie/jquery-ui.min.css" rel="stylesheet" />-->
+    <link href="css/jQM/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="css/jQM/jquery.mobile.icons-1.4.5.min.css" rel="stylesheet" />
+    <link href="css/jQM/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+    <link href="css/jQM/jtsage-datebox.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+    <script>
+        window.fbAsyncInit = function ()
+        {
+            FB.init({
+                appId: 'INSERT_HERE',       //Production
+                //appId: 'INSERT_HERE',     //Test
+                xfbml: true,
+                version: 'v2.5'
+            });
+
+            FB.getLoginStatus(function (response) { statusChangeCallback(response); });
+        };
+        (function (d, s, id)
+        {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        function checkLoginState()
+        {
+            //app.testLoginSuccess();
+            FB.getLoginStatus(function (response) { statusChangeCallback(response); });
+        };
+        function statusChangeCallback(response)
+        {
+            if (response.status === 'connected')
+            {
+                app.loginSuccess(response);
+            }
+            else
+            {
+                app.loginFailure(response);
+            }
+        };
+    </script>
+
+    <div id="page_splash" data-role="page" class="type-interior">
+
+        <div data-role="header" role="banner" data-position="fixed" class="ui-header" data-theme="b">
+            <h4 style="font-size:large;margin-bottom:7px" class="ui-title" role="heading">Splash Screen</h4>
+        </div>
+
+        <div data-role="content" class="small">
+            <div class="ui-body ui-body-a ui-corner-all">
+                <p>
+                    <a href="javascript:void(0)" onclick="app.gotoLogin()" data-role="button" data-theme="b">Launch App</a>
+                </p>
+                <p>
+                    <a href="javascript:void(0)" onclick="app.gotoNotification()" data-role="button" data-theme="b">TravelBuddy! Notification</a>
+                </p>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+        </div>
+
+    </div>
+
+    <div id="page_login" data-role="page" class="type-interior">
+
+        <div data-role="header" role="banner" data-position="fixed" class="ui-header" data-theme="b">
+            <a href="javascript:void(0)" onclick="app.openPanel()" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-grid ui-btn-icon-notext ui-shadow ui-header-panel-icon" title=" Navigation " data-form="ui-icon" data-role="button" role="button">Navigation</a>
+            <h4 style="font-size:large;margin-bottom:7px" role="heading">Travel Buddy !</h4>
+        </div>
+
+        <div data-role="content" class="small">
+            <img src="images/TravelBuddyLogo.png" class="horizontal-centered" />
+            <div class="margin-bottom-30"></div>
+            <div style="color:white;font-size:large;text-align:center">Your travel guide and companion!</div>
+            <div class="margin-bottom-50"></div>
+
+            <!--
+            <div>
+                <a data-theme="a" href="javascript:void(0)" onclick="app.testLoginSuccess()">
+                    <img class="horizontal-centered" width="75%" height="75%" src="images/ConnectWithFacebook.png">
+                </a>
+            </div>
+            -->
+
+            <div style="margin: 50px auto">
+                <fb:login-button size="xlarge" scope="public_profile,email" onlogin="checkLoginState();">
+                    Connect with Facebook
+                </fb:login-button>
+            </div>
+            <div class="margin-bottom-30"></div>
+            <p style="color:white;text-align:center">
+                Tap the above button to login with facebook
+            </p>
+            <div class="margin-bottom-30"></div>
+            <div style="text-align:center">
+                <a style="color:white" href="javascript:void(0)" onclick="app.gotoPrivacyPolicy()">Privacy Policy</a>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+        </div>
+
+    </div>
+
+    <div id="page_home" data-role="page" class="type-interior">
+
+        <div data-role="header" role="banner" data-position="fixed" class="ui-header" data-theme="b">
+            <a href="javascript:void(0)" onclick="app.openPanel()" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-grid ui-btn-icon-notext ui-shadow ui-header-panel-icon" title=" Navigation " data-form="ui-icon" data-role="button" role="button">Navigation</a>
+            <h4 style="font-size:large;margin-bottom:7px" class="ui-title" role="heading">Home</h4>
+        </div>
+
+        <div data-role="content" class="small">
+            <h3 class="ui-bar ui-bar-a ui-corner-all">Hi, <b data-bind="text: username"></b></h3>
+            <div class="ui-body ui-body-a ui-corner-all">
+                <p>Welcome to "Travel Buddy", your best travel companion and faithful guide.</p>
+                <p>
+                    Check out the travel plan that we have for you.
+                    <a href="javascript:void(0)" onclick="app.gotoRecommendationsHome()" data-role="button" data-theme="b">Here is our plan for you</a>
+                </p>
+            </div>
+            <div class="margin-bottom-20"></div>
+            <div class="ui-body ui-body-a ui-corner-all">
+                <p>
+                    Or tap the button below to generate your own plan
+                    <a href="javascript:void(0)" onclick="app.gotoRecommendationsHomeCustom()" data-role="button" data-theme="b">Custom destination and schedule</a>
+                </p>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+        </div>
+
+    </div>
+
+    <div id="page_recommendations_home" data-role="page" class="type-interior">
+
+        <div data-role="header" role="banner" data-position="fixed" class="ui-header" data-theme="b">
+            <a href="javascript:void(0)" onclick="app.openPanel()" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-grid ui-btn-icon-notext ui-shadow ui-header-panel-icon" title=" Navigation " data-form="ui-icon" data-role="button" role="button">Navigation</a>
+            <h4 style="font-size:large;margin-bottom:7px" class="ui-title" role="heading">Travel Plan</h4>
+        </div>
+
+        <div data-role="content" class="small">
+            <div class="ui-body ui-body-a ui-corner-all">
+                <p class="text-align-center">Here's your next destination!</p>
+                <p>
+                    <h3 class="ui-bar ui-bar-a ui-corner-all" style="text-align:center"><b data-bind="text: place"></b></h3>
+                    <div style="text-align:center">
+                        <a data-bind="attr: {href: placeLink}" data-theme="b">Know more about this place</a>
+                    </div>
+                </p>
+            </div>
+            <div class="margin-bottom-20"></div>
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>Select a budget:</legend>
+                <input type="radio" name="page_recommendations_home_budget" id="page_recommendations_home_budget_a" value="on" checked="checked">
+                <label for="page_recommendations_home_budget_a">Economy</label>
+                <input type="radio" name="page_recommendations_home_budget" id="page_recommendations_home_budget_b" value="off">
+                <label for="page_recommendations_home_budget_b">Average</label>
+                <input type="radio" name="page_recommendations_home_budget" id="page_recommendations_home_budget_c" value="other">
+                <label for="page_recommendations_home_budget_c">Luxury</label>
+            </fieldset>
+            <div class="margin-bottom-20"></div>
+            <div class="ui-body ui-body-a ui-corner-all">
+                <p>Vacation Start Date:<input id="page_recommendations_home_vsd" type="text" data-role="datebox" data-options='{"mode":"flipbox", "overrideDateFormat":"%m-%d-%Y"}' value="01-01-2016" /></p>
+                <p>Vacation End Date:<input id="page_recommendations_home_ved" type="text" data-role="datebox" data-options='{"mode":"flipbox", "overrideDateFormat":"%m-%d-%Y"}' value="01-03-2016" /></p>
+                <a href="javascript:void(0)" onclick="app.gotoRecommendationsDetails()" data-role="button" data-theme="b">View my travel plan now</a>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+        </div>
+
+    </div>
+
+    <div id="page_recommendations_home_custom" data-role="page" class="type-interior">
+
+        <div data-role="header" role="banner" data-position="fixed" class="ui-header" data-theme="b">
+            <a href="javascript:void(0)" onclick="app.openPanel()" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-grid ui-btn-icon-notext ui-shadow ui-header-panel-icon" title=" Navigation " data-form="ui-icon" data-role="button" role="button">Navigation</a>
+            <h4 style="font-size:large;margin-bottom:7px" class="ui-title" role="heading">Custom Travel Plan</h4>
+        </div>
+
+        <div data-role="content" class="small">
+            <div class="ui-body ui-body-a ui-corner-all">
+                <p>Choose your own preferences:</p>
+            </div>
+            <div class="ui-body ui-body-a ui-corner-all">
+                <p>Location:</p>
+                <p>
+                    <input type="text" data-bind="value: page_recommendations_home_custom_location" />
+                </p>
+            </div>
+            <div class="ui-body ui-body-a ui-corner-all">
+                <p>Vacation Start Date:<input id="page_recommendations_home_custom_vsd" type="text" data-role="datebox" data-options='{"mode":"flipbox"}' data-bind="value: page_recommendations_home_custom_vsd" /></p>
+                <p>Vacation End Date:<input id="page_recommendations_home_custom_ved" type="text" data-role="datebox" data-options='{"mode":"flipbox"}' data-bind="value: page_recommendations_home_custom_ved" /></p>
+                <a href="javascript:void(0)" onclick="app.gotoRecommendationsDetails()" data-role="button" data-theme="b">Confirm</a>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+        </div>
+
+    </div>
+
+    <div id="page_recommendations_details" data-role="page" class="type-interior">
+
+        <div data-role="header" role="banner" data-position="fixed" class="ui-header" data-theme="b">
+            <a href="javascript:void(0)" onclick="app.openPanel()" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-grid ui-btn-icon-notext ui-shadow ui-header-panel-icon" title=" Navigation " data-form="ui-icon" data-role="button" role="button">Navigation</a>
+            <h4 style="font-size:large;margin-bottom:7px" class="ui-title" role="heading">Travel Plan</h4>
+        </div>
+
+        <div data-role="content" class="small">
+            <div style="text-align:center">
+                <a href="#">
+                    <img src="images/ShareOnFacebook.png" />
+                </a>
+            </div>
+
+            <div data-role="tabs" id="page_recommendations_details_tabs" data-theme="b">
+                <div data-role="navbar" data-theme="b">
+                    <ul>
+                        <li><a id="page_recommendations_details_tab1" href="#page_recommendations_details_tab1_contents" data-ajax="false">Preparation</a></li>
+                        <li><a id="page_recommendations_details_tab2" href="#page_recommendations_details_tab2_contents" data-ajax="false">During Vacation</a></li>
+                    </ul>
+                </div>
+                <div id="page_recommendations_details_tab1_contents" class="ui-body-d ui-content">
+                    <p>We make your preparation easier!</p>
+                    <div data-role="collapsible-set" data-theme="b">
+                        <div data-role="collapsible" data-collapsed="false">
+                            <h3>Book your Tickets</h3>
+                            <p style="font-size:large;font-weight:800">
+                                Best time to book Tickets:
+                            </p>
+                            <p>
+                                01-Dec-2015 to 31-Dec-2015
+                            </p>
+                            <p style="font-size:large;font-weight:800">
+                                Flight Details:
+                            </p>
+                            <p>
+                                <a href="http://www.lufthansa.com/" target="_blank" class="ui-icon-fa ui-icon-fa-plane"><i class="fa fa-plane"></i> Lufthansa</a>
+                                <br />
+                                <a href="http://www.qatarairways.com/" target="_blank" class="ui-icon-fa ui-icon-fa-plane"><i class="fa fa-plane"></i> Qatar</a>
+                                <br />
+                                <a href="http://www.emirates.com/" target="_blank" class="ui-icon-fa ui-icon-fa-plane"><i class="fa fa-plane"></i> Emirates</a>
+                            <p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>VISA</h3>
+                            <p style="font-size:large;font-weight:800">VISA Requirement:</p>
+                            <p>
+                                Tourist, e-VISA or (VISA on arrival)
+                            </p>
+                            <p>
+                                <a href="http://tourism.gov.in/" target="_blank">
+                                    Nearest Consulate:
+                                </a>
+                                <img src="images/GenericMap.png" />
+                            </p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Travel Insurance</h3>
+                            <img src="images/insurance1.png" />
+                            <p>
+                                <a href="http://tourism.gov.in/" target="_blank">1. Allianze</a> - Medical/Baggage Loss/Theft/Delays - $500
+                            </p>
+                            <p>
+                                <a href="http://tourism.gov.in/" target="_blank">2. AIG</a> - Baggage Loss/Theft/Delays - $450
+                            </p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Weather & Packing</h3>
+                            <p style="font-size:large;font-weight:800">
+                                Expected Weather
+                                <img src="images/weather.png" width="25%" height="25%" align="right" />
+                            </p>
+                            Hot & Humid, monsoon with chances of rain
+                            <br />
+                            <p style="font-size:large;font-weight:800">
+                                Travel Gear
+                                <img src="images/luggage.png" width="20%" height="20%" align="right" />
+                            <p />
+                            Sunscreen
+                            <br />
+                            Summer Clothes preferably cotton
+                            <br />
+                            Rain Jackets
+                            <br />
+                            Trekking Gear
+                        </div>
+                    </div>
+                </div>
+                <div id="page_recommendations_details_tab2_contents" class="ui-body-d ui-content">
+                    <p>Here is our day on day vacation schedule for you</p>
+                    <div data-role="collapsible-set" data-theme="b">
+                        <div data-role="collapsible" data-collapsed="false">
+                            <h3>Day 1</h3>
+                            <p style="font-size:large;font-weight:800">Checkin:</p>
+                            9:30 PM, 01-Jan-2016
+                            <p style="font-size:large;font-weight:800">
+                                Hotels:
+                            </p>
+                            <p>
+                                <a href="http://tourism.gov.in/" target="_blank">
+                                    1.Courtyard - $160
+                                </a>
+                                <br />
+                                <img src="images/GenericMap.png" />
+                            </p>
+                            <p>
+                                <a href="http://tourism.gov.in/" target="_blank">
+                                    2.ITC Grand - $150
+                                </a>
+                                <br />
+                                <img src="images/GenericMap.png" />
+                            </p>
+                            <p>
+                                <a href="http://tourism.gov.in/" target="_blank">
+                                    3.The Park - $90
+                                </a>
+                                <br />
+                                <img src="images/GenericMap.png" />
+                            </p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Day 2</h3>
+                            <p style="font-size:large;font-weight:800">
+                                Places of Interest Nearby:
+                            </p>
+                            <p>
+                                <a href="http://tourism.gov.in/" target="_blank">1. Music World</a>
+                                <br />
+                                <img src="images/GenericMap.png" />
+                            </p>
+                            <p>
+                                <a href="http://tourism.gov.in/">2. The Marina - Beach</a>
+                                <br />
+                                <img src="images/GenericMap.png" />
+                            </p>
+                            <p style="font-size:large;font-weight:800">
+                                Food:
+                            <p />
+                            <p>
+                                Restaurants serving South Indian cuisine
+                                <br />
+                                <a href="http://tourism.gov.in/" target="_blank">Sagar Restaurant</a>
+                                <br />
+                                <img src="images/GenericMap.png" />
+                            </p>
+                            Checkout: 10AM IST, 02-Jan-2016
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Day 3</h3>
+                            <p style="font-size:large;font-weight:800">
+                                Places of Interest Nearby:
+                            </p>
+                            <p>
+                                <a href="http://tourism.gov.in/" target="_blank">The Dodabetta Peak - Trekking Trail - 3 Miles</a>
+                                <br />
+                                <img src="images/GenericMap.png" />
+                            </p>
+                            <p style="font-size:large;font-weight:800">
+                                Food:
+                            </p>
+                            <p>
+                                Nearby restaurants serving South Indian cuisine
+                                <br />
+                                <a href="http://tourism.gov.in/" target="_blank">Sagar Restaurant</a>
+                                <img src="images/GenericMap.png" />
+                                <br />
+                            </p>
+                            Checkout: 10AM IST, 03-Jan-2016
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+        </div>
+
+    </div>
+
+    <div id="page_privacy_policy" data-role="page" class="type-interior">
+
+        <div data-role="header" role="banner" data-position="fixed" class="ui-header" data-theme="b">
+            <a href="javascript:void(0)" onclick="app.openPanel()" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-grid ui-btn-icon-notext ui-shadow ui-header-panel-icon" title=" Navigation " data-form="ui-icon" data-role="button" role="button">Navigation</a>
+            <h4 style="font-size:large;margin-bottom:7px" role="heading">Privacy Policy</h4>
+        </div>
+
+        <div data-role="content" class="small">
+            <iframe src="PrivacyPolicy.txt" style="width:100%;height:500px" frameBorder="0"></iframe>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+        </div>
+    </div>
+
+    <div id="page_settings" data-role="page" class="type-interior">
+
+        <div data-role="header" role="banner" data-position="fixed" class="ui-header" data-theme="b">
+            <a href="javascript:void(0)" onclick="app.openPanel()" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-grid ui-btn-icon-notext ui-shadow ui-header-panel-icon" title=" Navigation " data-form="ui-icon" data-role="button" role="button">Navigation</a>
+            <h4 style="font-size:large;margin-bottom:7px" role="heading">Notification Settings</h4>
+        </div>
+
+        <div data-role="content" class="small">
+            <div class="ui-body ui-body-a ui-corner-all">
+                <div class="ui-field-contain">
+                    <label for="flip-notifications">Notifications:</label>
+                    <select name="flip-notifications" id="flip-notifications" data-role="flipswitch">
+                        <option value="off">Off</option>
+                        <option value="on" selected="">On</option>
+                    </select>
+                    <label for="notifications_sound">Notifications Sound:</label>
+                    <select name="flip-notifications_sound" id="flip-notifications_sound" data-role="flipswitch">
+                        <option value="off">Off</option>
+                        <option value="on" selected="">On</option>
+                    </select>
+                </div>
+                <a href="javascript:void(0)" onclick="app.gotoHome()" data-role="button" data-theme="b">Save</a>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+        </div>
+    </div>
+
+    <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-theme="b">
+
+        <ul data-role="listview">
+            <li data-role="list-divider" class="ui-panel-top-divider">
+                <a href="javascript:void(0)" onclick="app.gotoLogin()">Login</a>
+            </li>
+        </ul>
+    </div>
+
+    <div data-role="panel" id="leftpanel2" data-position="left" data-display="reveal" data-theme="b">
+
+        <ul data-role="listview">
+            <li data-role="list-divider" class="ui-panel-top-divider">
+                <a href="#" class="not-active">Welcome <b data-bind="text: username"></b></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="app.gotoHome()">Home</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="app.gotoRecommendationsHome()">My Travel Plan</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="app.gotoRecommendationsHomeCustom()">Custom Travel Plan</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="app.gotoSettings()">Notification Settings</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="app.gotoPrivacyPolicy()">Privacy Policy</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="app.logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--Scripts-->
+
+    <script src="scripts/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript">
+        $(document).bind("mobileinit", function ()
+        {
+            //For supporting cross-domain scripting with jQM
+            $.support.cors = true;
+            $.mobile.allowCrossDomainPages = true;
+        });
+    </script>
+    <!--<script src="scripts/bootstrap.min.js"></script>-->
+    <!--<script src="scripts/jquery-ui.min.js"></script>-->
+    <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+    <script src="scripts/jtsage-datebox.min.js"></script>
+    <script src="scripts/knockout-3.3.0.js"></script>
+
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+    <script src="scripts/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+    <!--<script src="scripts/appBundle.js"></script>-->
+
+</body>
+</html>
