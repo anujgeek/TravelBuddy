@@ -1,4 +1,15 @@
 # TravelBuddy
+Created by: Anuj Agrawal (Email: anuja@clemson.edu)
+<br>
+
+Final project for:
+<br>
+Clemson University HCC 8310 Fundamentals of Human-Centered Computing
+<br>
+Created using:
+<br>
+UI: HTML5, CSS, JavaScript, jQuery, jQuery Mobile, Phonegap
+Data: C#, WCF, MySQL
 
 ## Demo
 
