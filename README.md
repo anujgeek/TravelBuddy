@@ -45,4 +45,4 @@ The following two pages then provides you with details of your travel plan.
 
 Special thanks to: Dr. Kelly Caine and Dr. Jerome McClendon - for their guidance in following the HCC design cycle for this app.
 <br>
-Also to team members: Bharat Kumar Govindaradjou, Zachariah J Inks, Shreenath Ganesh - to help with the design and development of this app.
+Also to : Bharat Kumar Govindaradjou, Zachariah Inks and Shreenath Ganesh - for help with the design and development of this app.
