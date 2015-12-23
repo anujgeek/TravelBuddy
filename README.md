@@ -4,7 +4,7 @@ Created by: Anuj Agrawal (Email: anuja@clemson.edu)
 
 Final project for:
 <br>
-Clemson University HCC 8310 Fundamentals of Human-Centered Computing
+Clemson University - HCC 8310: Fundamentals of Human-Centered Computing
 <br>
 Cross-platform mobile app created using:
 <br>
