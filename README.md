@@ -40,3 +40,8 @@ The following two pages then provides you with details of your travel plan.
 ![6](https://raw.githubusercontent.com/anujgeek/TravelBuddy/master/Demo/6.jpg "Preparation")
 ![7](https://raw.githubusercontent.com/anujgeek/TravelBuddy/master/Demo/7.jpg "During Vacation")
 <br>
+
+## Credits:
+
+Special thanks to: Dr. Kelly Caine and Dr. Jerome McClendon - for their guidance in following the HCC design cycle for this app.
+Also to team members: Bharat Kumar Govindaradjou, Zachariah J Inks, Shreenath Ganesh.
