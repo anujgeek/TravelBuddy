@@ -9,6 +9,7 @@ Clemson University HCC 8310 Fundamentals of Human-Centered Computing
 Created using:
 <br>
 UI: HTML5, CSS, JavaScript, jQuery, jQuery Mobile, Phonegap
+<br>
 Data: C#, WCF, MySQL
 
 ## Demo
