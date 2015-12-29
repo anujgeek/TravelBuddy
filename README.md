@@ -10,7 +10,7 @@ Cross-platform mobile app created using:
 <br>
 FrontEnd: HTML5, CSS, JavaScript, jQuery, jQuery Mobile, Phonegap
 <br>
-BackEnd: C#, WCF, MySQL
+BackEnd: C#, WCF, LINQ, Entity Framework, MySQL
 
 ## Description
 Travel Buddy (a social media based travel plan predictor and recommender) – aims to address the problems tourists and travellers face when they plan a prospective vacation by providing them with vacation preparation guidance and a day on day travel plan that contains recommendations based on the user's social media data (this app uses Facebook). Also, the user has options to choose a vacation plan based on his/her cost preferences. This ensures that a person using this app has proper guidance on issues like the right time to book cheapest travel tickets, purchasing travel insurance, VISA process and weather conditions at the destination of travel. The day on day plan gives the user guidance on choosing accommodations, restaurants and places of interest in the destination based on his social media preferences that are driven by the user’s likes, shares, posts, check-ins, etc. on Facebook.
