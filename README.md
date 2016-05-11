@@ -1,5 +1,5 @@
 # Travel Buddy
-Created by: Anuj Agrawal (Website: http://www.anujgeek.com/)
+Created by: Anuj Agrawal (Website: http://www.anujgeek.com)
 <br>
 
 Final project for:
